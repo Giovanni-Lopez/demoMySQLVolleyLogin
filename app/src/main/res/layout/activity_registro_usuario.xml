@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@drawable/img"
+    tools:context=".registroUsuario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nombres Usuario"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_apellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Apellidos_usuario"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_correo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Correo"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="nombre Usuario"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_clave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="clave de usuario"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Tipo de cuenta"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Estado de cuenta"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_pregunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Pregunta recordatoria"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_respuesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="respuesta recordatoria"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/et_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine" />
+
+
+
+    </LinearLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

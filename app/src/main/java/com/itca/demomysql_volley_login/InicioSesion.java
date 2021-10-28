@@ -50,25 +50,43 @@ public class InicioSesion extends AppCompatActivity {
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(InicioSesion.this, "hecho clic en login", Toast.LENGTH_SHORT).show();
+                login(getApplicationContext(), et_usu.getText().toString(), et_clave.getText().toString());
             }
         });
+
+        btn_Perdiste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btn_Registrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(InicioSesion.this, registroUsuario.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
     }
 
     private void login(final Context context, final String user, final String pass) {
 
-        String url = "https://mjgl.com.sv/ws_2021/login.php";
+        String url = "https://alexis-lopez.000webhostapp.com/login.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
 
-                if(response.equals("0")){
+                if (response.equals("0")) {
                     Toast.makeText(context, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     try {
                         JSONObject respuestaJSON = new JSONObject(response.toString());
                         String id = respuestaJSON.getString("id");
@@ -83,16 +101,32 @@ public class InicioSesion extends AppCompatActivity {
                         String respuesta = respuestaJSON.getString("respuesta");
                         String fecha_registro = respuestaJSON.getString("fecha_registro");
 
-                        Intent intent = new Intent(context, MainActivity.class);
-                        intent.putExtra("usuario" , usuario);
+                        Intent intent = new Intent(InicioSesion.this, MainActivity.class);
+                        startActivity(intent);
 
-                    }catch (JSONException e){
+                        //Toast.makeText(InicioSesion.this, response.toString(), Toast.LENGTH_SHORT).show();
+
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        });
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(InicioSesion.this, "Error: Problemas con la conexion al servidor", Toast.LENGTH_SHORT).show();
+            }
+        }){
 
+            @Override
+            protected HashMap<String, String> getParams(){
+                HashMap<String, String> parametros = new HashMap<>();
+                parametros.put("usu", user.trim());
+                parametros.put("pass", pass.trim());
+                return parametros;
+            }
+        };
+    MySingleton.getInstance(context).addToRequestQueue(request);
     }
 }
 
